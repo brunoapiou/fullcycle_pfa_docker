@@ -20,4 +20,4 @@ cd ..
 cd web
 
 docker build -t mynginx_image .
-docker run --rm -d --network minharede --name mynginx -p 80:80 mynginx_image
+docker run --rm -d --network minharede --name mynginx -p 8080:8080 mynginx_image
