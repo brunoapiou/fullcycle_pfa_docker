@@ -40,14 +40,23 @@ conn = None
 def listModulos():
     global conn
     if not conn:
-        conn = DBManager()
-        conn.populate_db()
+        conn = DBManager()        
     rec = conn.query_titles()
 
     response = '<h1>Full Cycle</h1>'
     for c in rec:
         response = response  + '<div>' + c + '</div>'
     return response
+
+@server.route('/populate')
+def populate():
+    global conn
+    if not conn:
+        conn = DBManager()
+    conn.populate_db()
+
+    return '<p>Database populated</p>'
+        
 
 #if __name__ == '__main__':
 #    server.run()
